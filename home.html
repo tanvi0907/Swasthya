@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+      font-size: 28px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .header {
+      background-image: url("hospital_logo.png"),url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3oqzyj-Rs5yzBV46zojibpePoogPo0kqJ-w&usqp=CAU");
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: 150px 200px,100vw 80vh;
+      padding: 30px;
+      text-align: center;
+    }
+
+
+    .topnav {
+      overflow: hidden;
+      background-color: #333;
+      z-index: 1;
+    }
+
+    .topnav a {
+      float: left;
+      display: block;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+
+    .topnav a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    .topnav a.active {
+      background-color: #04AA6D;
+      color: white;
+    }
+
+
+    .sticky {
+      position: fixed;
+      top: 0;
+      width: 100%;
+    }
+
+
+
+    .bgimg-1,
+    .bgimg-2,
+    .bgimg-3 {
+      position: relative;
+      opacity: 0.8;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+
+    }
+
+    .bgimg-1 {
+      background-image: url("https://images.unsplash.com/photo-1586773860383-dab5f3bc1bcc?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NzV8fGhvc3BpdGFsfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60");
+      min-height: 100%;
+    }
+
+    .bgimg-2 {
+      background-image: url("https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8aGVhbHRofGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60");
+      min-height: 400px;
+    }
+
+    .bgimg-3 {
+      background-image: url("https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZG9jdG9yc3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60");
+      min-height: 400px;
+    }
+
+    .caption {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 100%;
+      text-align: center;
+      color: rgb(255, 255, 255);
+    }
+
+    .caption span.border {
+      background-color: rgb(0, 0, 0);
+      color: #fff;
+      padding: 18px;
+      font-size: 25px;
+      letter-spacing: 10px;
+    }
+
+    h3 {
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      font: 20px "Lato", sans-serif;
+      color: rgb(0, 0, 0);
+    }
+
+    .fab:hover {
+      transform: scale(1.5, 1.5);
+    }
+
+    .topnav .icon {
+      display: none;
+    }
+
+    .content {
+      color: #777;
+      background-color: white;
+      text-align: center;
+      padding: 50px 80px;
+      text-align: justify;
+    }
+
+    /* Turn off parallax scrolling for tablets and phones */
+    @media only screen and (max-device-width: 1024px) {
+
+      .bgimg-1,
+      .bgimg-2,
+      .bgimg-3 {
+        background-attachment: scroll;
+      }
+
+      @media screen and (max-width: 600px) {
+        .topnav a:not(:first-child) {
+          display: none;
+        }
+
+        .topnav a.icon {
+          float: right;
+          display: block;
+        }
+      }
+
+      @media screen and (max-width: 600px) {
+        .topnav.responsive {
+          position: relative;
+        }
+
+        .topnav.responsive .icon {
+          position: absolute;
+          right: 0;
+          top: 0;
+        }
+
+        .topnav.responsive a {
+          float: none;
+          display: block;
+          text-align: left;
+        }
+  </style>
+  <script src="https://kit.fontawesome.com/1954550d51.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="header">
+    <h1>
+      Swasthya Hospital
+    </h1>
+    <p>
+      Isn't your <b>HEALTH</b> worth it?
+    </p>
+    <br>
+    <br>
+  </div>
+
+
+  <div class="topnav" id="navbar">
+    <a class="active" href="home.html">Home</a>
+    <a href="expert_advice.html">Expert Advice</a>
+    <a href="timeline.html">Timeline</a>
+    <a href="home.html#footer">Contact</a>
+    <a href="javascript:void(0)">Appointment</a>
+    <a href="about.html">About</a>
+    <button style="float:right; font-size: 17px;" onclick="document.location='emergency.html'">Emergency <i
+        class="fas fa-arrow-right"></i><br><b>(Call 108)</b></button>
+    <a href="javascript:void(0);" class="icon" onclick="myResponsiveFunction()">
+      <i class="fa fa-bars"></i></a>
+  </div>
+
+  <script>
+    window.onscroll = function () { myFunction() };
+
+    var navbar = document.getElementById("navbar");
+    var sticky = navbar.offsetTop;
+
+    function myFunction() {
+      if (window.pageYOffset >= sticky) {
+        navbar.classList.add("sticky")
+      } else {
+        navbar.classList.remove("sticky");
+      }
+    }
+    function myResponsiveFunction() {
+      var x = document.getElementById("navbar");
+      if (x.className === "topnav") {
+        x.className += " responsive";
+      } else {
+        x.className = "topnav";
+      }
+    }
+  </script>
+
+  <div class="bgimg-1">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="caption">
+      <h1>Glimpse of our enviornment</h1>
+    </div>
+  </div>
+
+  <div class="content">
+    <h3 style="text-align:center;font-size:30px;">About Swasthya Hospital</h3>
+    <p>The premier multi-specialty tertiary care hospital of Vapi has been acknowledged as a centre of medical
+      excellence. The kind of confidence, trust it has developed on strong foundation of the state-of-the-art
+      facilities, best medical expertise, research and educational endeavors; that today it serves patients from all
+      walks of life.
+      <br> Based on a powerful Sanskrit inspiration,<b> “Sarvetra Sukhina:Santu, Sarve SantuNiramaya:”</b> which means
+      <b>“Let all be blissful, Let all stay healthy”,</b> the hospital has focused its operation on providing quality
+      care with a human touch; which truly reflects the essence of its motto <i><b>“The Greatest Wealth is
+          Health”.</b></i>
+      <br> The hospital is located on the Mumbai - Ahmedabad highway (NH - 8) at Vapi. The hospital started functioning
+      in 2007 with 45 beds and 30 Specialists (Full time & Visiting), with one of the largest Intensive Care Units
+      (ICUs), most advanced Operation Theaters, and manpower of nearly 150. Hospital attended to around 1500 In-patients
+      and 20000 Out-patients in the last one year. Easily Accessible, located on National Highway, 45 bedded central air
+      conditioned indoor facility, 10 bedded fully equipped ultramodern ICU, 2 bedded isolated burn ward, 8 bedded
+      General Ward (4 Male / 4 Female), 4 Semi Deluxe beds, 12 Deluxe Rooms, 4 Suite Rooms, Modular Operation Theatre
+      with Laminar Air flow, Ultramodern Cath Lab “Schiller Make”, Haemodialysis, 16 slice CT machine, Fully equipped
+      pathology laboratory, 24 hrs. in-house Pharmacy, 24 hrs. Ambulance Service
+
+    </p>
+  </div>
+
+  <div class="bgimg-2">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="caption">
+      <span class="border" style="background-color:transparent;font-size:25px;color: #ffffff;">
+        <h1>Have a healthy Lifestyle</h1>
+      </span>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+  </div>
+
+  <div class="content">
+    <h3 style="text-align:center;font-size:30px;">Health: Our real Power</h3>
+    <p> <b>“It is health that is the real wealth, and not pieces of gold and silver.” <div style="text-align:right;">–
+          Mahatma Gandhi</b>
+  </div>
+  <br>
+  As it is rightly said and thus the main focus of our hospital is to take care of patient and treat them with care and
+  love. The main purpose of this hospital is to make people health-conscious. Nowdays due to attraction to western
+  culture, people are just eating food for the test without knowing its nutritional content. Due to all these reasons,
+  immunity of people is badly influenced</p>
+  </div>
+
+
+  <div class="bgimg-3">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="caption">
+      <span class="border" style="background-color:transparent;font-size:50px;color: #000000;"><b>Doctors=God on
+          Earth</b></span>
+    </div>
+  </div>
+
+  <div class="content">
+    <h3 style="text-align:center;font-size:30px;">Our main heros</h3>
+    <p><b>“A good doctor treats the disease, but the great doctor treats the patient who has the disease.”</b><br>
+      And it's proud for us to say that our institution is blessed to have such great doctors.You can reach to our
+      institute 24*7 and you will get the best treatment available.</p>
+  </div>
+
+
+  <div class="bgimg-1">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="caption">
+      <span class="border">Visit Again!</span>
+    </div>
+  </div>
+
+  <!-- Footer part-->
+  <div id="footer"
+    style="color: rgb(255, 255, 255);background-color:rgb(0, 0, 0);text-align:center;padding:50px 80px;text-align: justify;">
+    <h3 style="color:white;">Address:
+      <p>Swasthya hospital,Next to Home Decor,Service road,N.H.48, Gunjan road,GIDC,Vapi-396195,Gujarat </p>
+      Contact number:
+      <p>043-456-3456/9374527119</p>
+    </h3>
+    <a href="mailto: swasthya@345gmail.com">swasthya@345gmail.com</a>
+    <h3 style="color:white;">
+      <hr>
+      <br>
+      Other Cities
+      <br>
+      <br>
+      <table style="width:100vw;text-align:center;">
+        <tr>
+          <td>Surat</td>
+          <td>Ahmedabad</td>
+          <td>Bharuch</td>
+        </tr>
+        <tr>
+          <td>Goa</td>
+          <td>Mumbai</td>
+          <td>Rajkot</td>
+          <t </tr>
+        <tr>
+          <td>Bhopal</td>
+          <td>Ladakh</td>
+          <td>Ranchi</td>
+        </tr>
+        <tr>
+          <td>Pune</td>
+          <td>Delhi</td>
+          <td>Raipur</td>
+        </tr>
+        <tr>
+          <td>Hyderabad</td>
+          <td>Banglore</td>
+          <td>Chennai</td>
+        </tr>
+        <tr>
+          <td>Los Angles</td>
+          <td>London</td>
+          <td>Paris</td>
+      </table>
+      <hr>
+      <div style="text-align:center;">
+        Connect with us
+        <br>
+        <br>
+        <i class="fab fa-facebook-f"></i>
+        <i class="fab fa-facebook-messenger"></i>
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-linkedin"></i>
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-whatsapp"></i>
+      </div>
+    </h3>
+    <p style="font-size: 15px;">Copyright <i class="far fa-copyright"></i>,Swasthya hospital <br>All rights are
+      preserved </p>
+  </div>
+</body>
+
+</html>

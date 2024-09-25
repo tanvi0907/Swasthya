@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stylesheet 4</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-size: 28px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .header {
+      background-image: url("hospital_logo.png"),url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3oqzyj-Rs5yzBV46zojibpePoogPo0kqJ-w&usqp=CAU");
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: 150px 200px,100vw 80vh;
+      padding: 30px;
+      text-align: center;
+    }
+
+        }
+
+        .topnav {
+            overflow: hidden;
+            background-color: #333;
+            z-index: 1;
+        }
+
+        .topnav a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .topnav a.active {
+            background-color: #04AA6D;
+            color: white;
+        }
+
+        .sticky {
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+
+        a {
+            color: teal;
+        }
+
+        .navBar {
+            width: 100%;
+            color: white;
+        }
+
+        .navBar ul {
+            list-style-type: none;
+            display: flex;
+        }
+
+        .navBar ul li {
+            padding: 1rem;
+            flex: 1;
+            background-color: lightgreen;
+            text-align: center;
+            transition: 250ms;
+        }
+
+        .navBar ul li:hover {
+            background-color: darkgreen;
+            flex: 1.5;
+        }
+
+        .navBar ul li:nth-child(4) {
+            background-color: darkgreen;
+            flex: 1.5;
+        }
+
+        .navBar ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .content {
+            margin: 2rem;
+        }
+
+        .section {
+            margin: 2rem 0;
+        }
+
+        .sidebar h2,
+        .menu h2,
+        .section h2 {
+            color: darkgreen;
+            margin-bottom: 0.5rem;
+        }
+
+        .tan {
+            margin: 2rem;
+            text-align: center;
+            padding: 1rem;
+            background-color: #eee;
+        }
+
+        .topnav .icon{
+            display: none;
+        }
+        
+        @media screen and (max-width: 600px) {
+        .topnav a:not(:first-child) {
+          display: none;
+        }
+
+        .topnav a.icon {
+          float: right;
+          display: block;
+        }
+      }
+
+      @media screen and (max-width: 600px) {
+        .topnav.responsive {
+          position: relative;
+        }
+
+        .topnav.responsive .icon {
+          position: absolute;
+          right: 0;
+          top: 0;
+        }
+
+        .topnav.responsive a {
+          float: none;
+          display: block;
+          text-align: left;
+        }
+
+    </style>
+    <script src="https://kit.fontawesome.com/1954550d51.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="header">
+        <h1>
+            Swasthya Hospital
+        </h1>
+        <p>
+            Isn't your <b>HEALTH</b> worth it?
+        </p>
+        <br>
+        <br>
+    </div>
+
+
+    <div class="topnav" id="navbar">
+    <a class="active" href="home.html">Home</a>
+    <a href="expert_advice.html">Expert Advice</a>
+    <a href="timeline.html">Timeline</a>
+    <a href="home.html#footer">Contact</a>
+    <a href="javascript:void(0)">Appointment</a>
+    <a href="about.html">About</a>
+    <button style="float:right; font-size: 17px;" onclick="document.location='emergency.html'">Emergency <i
+        class="fas fa-arrow-right"></i><br><b>(Call 108)</b></button>
+    <a href="javascript:void(0);" class="icon" onclick="myResponsiveFunction()">
+      <i class="fa fa-bars"></i></a>
+  </div>
+
+    <script>
+        window.onscroll = function () { myFunction() };
+
+        var navbar = document.getElementById("navbar");
+        var sticky = navbar.offsetTop;
+
+        function myFunction() {
+            if (window.pageYOffset >= sticky) {
+                navbar.classList.add("sticky")
+            } else {
+                navbar.classList.remove("sticky");
+            }
+        }
+        function myResponsiveFunction() {
+            var x = document.getElementById("navbar");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
+    </script>
+    <div class="container">
+        <div class="navBar">
+            <ul>
+                <li><a href="#emergency">Hospital emergency departments</a></li>
+                <li><a href="#triage">Emergency triage system</a></li>
+                <li><a href="#expect">What to expect in an emergency department</a></li>
+
+
+            </ul>
+        </div>
+        <br>
+        <br>
+        <div class="content">
+            <div class="section" id="emergency">
+                <h2>Summary</h2>
+                <p>In a medical emergency, call triple zero (000).
+                    Emergency departments aim to provide you with high-quality care.
+                    Not all hospitals have an emergency department.
+                    Some private hospitals have emergency departments, but you may have to pay for medical services not
+                    covered by Medicare.
+                    Call NURSE-ON-CALL at any time, day or night on 1300 60 60 24 to talk about non-urgent health
+                    concerns..</p>
+            </div>
+            <div class="section">
+                <h2>Hospital emergency services</h2>
+                <p>
+                    Most emergency departments care for all ages and patient types.<br>
+                    Some private hospitals have emergency departments, but they may charge fees for medical services
+                    that may not be covered by Medicare.
+                    Some people have private health insurance to offset these fees. If you are not sure (and if you
+                    can), ask the triage nurse about costs
+                    when you arrive.<br>
+                </p>
+            </div>
+            <br>
+            <br>
+            <div class="sidebar" id="triage">
+
+                <h2> Emergency triage system
+                </h2>
+
+                <p> In Australia, the triage system is used to prioritise patients according to how sick or injured they
+                    are. This system allows patients with more serious problems to be treated first. </p>
+                <br>
+                <h2 style="text-align:left; color:darkgreen"> Things to tell emergency department staff</h2><br>
+
+                <p>The emergency department staff may not be aware of your medical background, so they ask a lot of
+                    questions. Sometimes, this needs to be done by more than one healthcare worker.
+
+                    To help the staff assess and treat you, tell them about:
+                    <br>
+                    <br>
+                    1.the reason you came to the emergency department<br>
+
+                    2.any health problems you have had in the past<br>
+                    3.all medication and treatments you are using<br>
+                    4.any allergies<br>
+                    5.any recent trips overseas<br>
+                    6.if you are pregnant or breastfeeding<br>
+                    7.any other facts they should know about.<br>
+
+            </div>
+            <br>
+            <br>
+            <div class="menu" id="expect">
+                <h2>What to expect in an emergency department</h2>
+                <p>Your emergency care starts as soon as you arrive at the emergency department. A specialist emergency
+                    nurse, called the triage nurse, will assess your condition, provide first aid and prioritise you for
+                    treatment. You may be asked to wait in the waiting room. How long you wait depends on how busy the
+                    department is at the time and the number of patients with conditions more serious than yours.</p>
+                <br>
+                Sometimes the waiting area appears quiet, but this doesn’t mean the emergency department is not busy.
+
+                Staff members understand that waiting can be frustrating. They do their best to keep your wait to a
+                minimum and make you comfortable. If your condition changes while you are waiting, let the triage nurse
+                know.
+
+                <br>
+                <br>
+                <h2 style="text-align:left; color:darkgreen"> Avoid food and drink</h2><br>
+                <p> It is important that you don’t eat or drink before being seen. You may need tests or procedures that
+                    require you not to eat or drink beforehand. Speak to the triage nurse if you have any questions
+                    about this.
+                </p>
+
+            </div>
+            <br>
+            <div class="section">
+
+                <h2 style="text-alignleft; color:darkgreen">Emergency department assessment and treatment</h2>
+                <br>
+                <p>A staff member will take you to a treatment area where you will be re-assessed, examined and your
+                    problem will be discussed with you. The treating clinician will tell you about any tests or
+                    treatments that may be required. Feel free to ask questions about your condition and your treatment
+                    at any time.
+
+                    <br>If your problem may be able to be treated in the emergency department, after which you will be
+                    bale to go home. The treating doctor may also suggest treatment at home or by your local doctor. If
+                    your problem is more serious or requires special care, you may be admitted into the hospital.
+
+                </p>
+
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

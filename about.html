@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.header {
+      background-image: url("hospital_logo.png"),url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3oqzyj-Rs5yzBV46zojibpePoogPo0kqJ-w&usqp=CAU");
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: 150px 200px,100vw 80vh;
+      padding: 30px;
+      text-align: center;
+    }
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+  z-index: 1;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 300px;
+  perspective: 1000px;
+  z-index:-1;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+.flip-card-back {
+  background-image: linear-gradient(45deg, yellow, white);
+  color: black;
+  transform: rotateY(180deg);
+}
+
+.responsive {
+  padding: 0 6px;
+  float: left;
+  width: 24.99999%;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+@media only screen and (max-width: 700px) {
+  .responsive {
+    width: 49.99999%;
+    margin: 6px 0;
+  }
+  .about{
+    font-size:medium;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .responsive {
+    width: 100%;
+  }
+  .about{
+    font-size: small;
+  }
+}
+
+img {
+  vertical-align: middle;
+}
+
+/* Position the image container (needed to position the left and right arrows) */
+.container {
+  position: relative;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+  text-align: center;
+  background-color: #222;
+  padding: 2px 16px;
+  color: white;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Six columns side by side */
+.column {
+  float: left;
+  width: 16.66%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child) {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+
+</style>
+<script src="https://kit.fontawesome.com/1954550d51.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <div class="header">
+        <h1>
+            Swasthya Hospital
+        </h1>
+        <p>
+            Isn't your <b>HEALTH</b> worth it?
+        </p>
+        <br>
+        <br>
+    </div>
+    
+    
+    <div class="topnav" id="navbar">
+    <a class="active" href="home.html">Home</a>
+    <a href="expert_advice.html">Expert Advice</a>
+    <a href="timeline.html">Timeline</a>
+    <a href="home.html#footer">Contact</a>
+    <a href="javascript:void(0)">Appointment</a>
+    <a href="about.html">About</a>
+    <button style="float:right; font-size: 17px;" onclick="document.location='emergency.html'">Emergency <i
+        class="fas fa-arrow-right"></i><br><b>(Call 108)</b></button>
+    <a href="javascript:void(0);" class="icon" onclick="myResponsiveFunction()">
+      <i class="fa fa-bars"></i></a>
+  </div>
+<script>
+window.onscroll = function() {myFunction()};
+
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+  function myResponsiveFunction() {
+    var x = document.getElementById("navbar");
+    if (x.className === "topnav") {
+      x.className += " responsive";
+    } else {
+      x.className = "topnav";
+    }
+  }
+  </script>
+  
+
+<div id="about" class="about" style="text-align: center;">
+  <h1>You're at right place!!</h1>
+  <p>
+      Our hospital's major aim is to prioritize health over everything. We just want to make people realise that how they are themselves destroying their lives.
+  </p>
+  <p>
+    Swasthya Hospital is a Millennium dream institute started as a multispecialty hospital in GIDC, Vapi; now entering its 20th Year of Operations in a newly renovated and rejuvenated form. It caters to people of all social and economic strata covering the entire Gujarat, North Maharashtra, and neighboring union territories of Daman & Silvassa.
+  </p>
+  <p>
+  Apart from routine medical specialties, it also has (1) Advance Obgyn & Infertility IVF-ICSI Unit, (2) Total Onco & Cancer Care with Laparoscopic surgeries, (3) Dermatology & Advanced Cosmetology and (4) Cardiology Department with facilities for angiography & angioplasties with 14 ICU beds. These super specialties also attract patients from all over India & abroad.
+  </p>
+  <hr>
+  <h1 id="managing">
+    Managing committee of hospital
+  </h1>
+</div>
+
+<div class="responsive">
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+             <img src="https://images.unsplash.com/photo-1612213467906-20440d15bdb8?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTMyfHxodW1hbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Avatar" style="width:300px;height:300px;"><br>
+            </div>
+            <div class="flip-card-back">
+                <h1>Mr. Dhairya Oza</h1> 
+                <h3>Founder,Chairman</h3> 
+            <p> He is best described as a compassionate humanitarian, who dedicated his life to bringing world-class healthcare within the economic and geographic reach of millions.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="responsive">
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+             <img src="https://images.unsplash.com/photo-1599842057874-37393e9342df?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTY1fHxodW1hbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Avatar" style="width:300px;height:300px;"><br>
+            </div>
+            <div class="flip-card-back">
+                <h1>Ms. Tanvi Dixit</h1> 
+                <h3>Executive Vice Chairperson</h3> 
+            <p>She is widely recognized for her contributions in making high quality healthcare accessible to millions across the country. She is known for her support to various entities and industry bodies, working for the betterment of India.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="responsive">
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+             <img src="https://images.unsplash.com/photo-1544348817-5f2cf14b88c8?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjR8fGh1bWFufGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Avatar" style="width:300px;height:300px;"><br>
+            </div>
+            <div class="flip-card-back">
+                <h1>Mr. Ritesh Sakheta</h1> 
+                <h3>Managing Director</h3> 
+            <p>Under his stewardship Swasthya Hospitals has emerged as a forerunner of integrated healthcare and also has a robust presence across the healthcare spectrum.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="responsive">
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+             <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzV8fGh1bWFufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="Avatar" style="width:300px;height:300px;"><br>
+            </div>
+            <div class="flip-card-back">
+                <h1>Ms. Tanisha Shah</h1> 
+                <h3>Joint Managing Director</h3> 
+            <p>Passionately committed to transforming healthcare system through technological advancements, she is accelerating positive transformation for effective healthcare.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<hr>
+<h2 style="text-align:center">Slideshow Gallery</h2>
+
+<div class="container">
+  <div class="mySlides">
+    <div class="numbertext">1 / 6</div>
+    <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aG9zcGl0YWx8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">2 / 6</div>
+    <img src="https://images.unsplash.com/photo-1469119992929-dce58295cb02?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTV8fGhvc3BpdGFsfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">3 / 6</div>
+    <img src="https://images.unsplash.com/photo-1565307528294-f70f3c7094e0?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTl8fGhvc3BpdGFsfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" style="width:100%">
+  </div>
+    
+  <div class="mySlides">
+    <div class="numbertext">4 / 6</div>
+    <img src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aG9zcGl0YWx8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">5 / 6</div>
+    <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8aG9zcGl0YWx8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" style="width:100%">
+  </div>
+    
+  <div class="mySlides">
+    <div class="numbertext">6 / 6</div>
+    <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8aG9zcGl0YWx8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" style="width:100%">
+  </div>
+    
+  <a class="prev" onclick="plusSlides(-1)">❮</a>
+  <a class="next" onclick="plusSlides(1)">❯</a>
+
+  <div class="caption-container">
+    <p id="caption"></p>
+  </div>
+
+  <div class="row">
+    <div class="column">
+      <img class="demo cursor" src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aG9zcGl0YWx8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" style="width:100%" onclick="currentSlide(1)" alt="Reception">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="https://images.unsplash.com/photo-1469119992929-dce58295cb02?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTV8fGhvc3BpdGFsfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" style="width:100%" onclick="currentSlide(2)" alt="Passage">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="https://images.unsplash.com/photo-1565307528294-f70f3c7094e0?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTl8fGhvc3BpdGFsfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" style="width:100%" onclick="currentSlide(3)" alt="Sitting arrangement">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aG9zcGl0YWx8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" style="width:100%" onclick="currentSlide(4)" alt="Normal rest room">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="https://images.unsplash.com/photo-1551076805-e1869033e561?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8aG9zcGl0YWx8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" style="width:100%" onclick="currentSlide(5)" alt="Operation Room">
+    </div>    
+    <div class="column">
+      <img class="demo cursor" src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8aG9zcGl0YWx8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" style="width:100%" onclick="currentSlide(6)" alt="Hospital Look">
+    </div>
+  </div>
+</div>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  var captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
+</script>
+    
+<hr>
+
+<div class="about" id="map" style="text-align: center;">
+  <h1>
+      Hospital map
+  </h1>
+     <img src="data:image/jpeg;base64,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">
+</div>
+<button click me!</button>
+</body>
+</html>
